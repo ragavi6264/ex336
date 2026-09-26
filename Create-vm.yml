@@ -23,5 +23,5 @@
         state: present
         namespace: "{{ vm_namespace }}"
         definition: "{{ item }}"
-      loop: "{{ processed_templates.resources }}"
+      loop: "{{ processed_template.resources }}"
       
