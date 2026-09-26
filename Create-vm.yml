@@ -9,10 +9,10 @@
   tasks:
     - name: Process the Openshift Template
       redhat.openshift.openshift_process:
-      namespace: openshift
-      name: "{{ vm_template }}"
-      parameters:
-        NAME: "{{vm_name}}"
+        namespace: openshift
+        name: "{{ vm_template }}"
+        parameters:
+          NAME: "{{vm_name}}"
       register: processed_template
       
     - name: Verify the process with debug
