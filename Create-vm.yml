@@ -1,0 +1,22 @@
+- name: Create VM from Template
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Process the Openshift Template
+      redhat.openshift.openshift_process:
+      namespace: openshift
+      name: "{{ vm_template }}"
+      parameters:
+        NAME: "{{vm_name}}"
+      register: processed_template
+      
+    - name: Verify the process with debug
+      anible.builtin.debug:
+        var: processed_template
+    - name: Create VM
+      kubernetes.core.k8s:
+        state: present
+        namespace: "{{ vm_namespace }}"
+        definition: "{{ item }}"
+      loop: "{{ processed_templates.resources }}"
+      
