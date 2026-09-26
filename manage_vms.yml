@@ -1,0 +1,7 @@
+---
+- name: Manage a Virtual Machine
+  hosts: localhost
+
+  tasks:
+    - name: Run the specific vm_management task
+      ansible.builtin.include_tasks: "tasks/{{ task_file }}"
