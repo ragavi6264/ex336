@@ -1,7 +1,7 @@
 # start a single VM
 # variables define namespace and vm name
 ---
-- name: Wait until the VirtualMachine is stopped
+- name: Wait until the VirtualMachine is started
   redhat.openshift_virtualization.kubevirt_vm:
     name: "{{ vm_name }}"
     namespace: "{{ target_ns }}"
