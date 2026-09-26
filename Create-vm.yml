@@ -16,7 +16,7 @@
       register: processed_template
       
     - name: Verify the process with debug
-      anible.builtin.debug:
+      ansible.builtin.debug:
         var: processed_template
     - name: Create VM
       kubernetes.core.k8s:
